@@ -1,0 +1,9 @@
+# Replace this with a reviewed, existing or approved host project ID.
+project_id = "YOUR_HOST_PROJECT_ID"
+
+region      = "me-central2"
+network_name = "alz-shared-vpc"
+subnet_name  = "alz-me-central2-app-01"
+
+# Required: choose only after inspecting all relevant network ranges.
+subnet_cidr = "REPLACE_WITH_REVIEWED_CIDR"
