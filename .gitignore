@@ -1,16 +1,37 @@
-# Terraform working directory
+# Terraform working directories
 **/.terraform/*
 
-# State and plans
+# Terraform state and backups
 *.tfstate
 *.tfstate.*
-*.tfplan
-crash.log
 
-# Local inputs and credentials
+# Saved Terraform plans
+*.tfplan
+*.plan
+
+# Live variable files; allow safe examples
 *.tfvars
-*.tfvars.json
+!*.tfvars.example
+
+# Terraform crash logs
+crash.log
+crash.*.log
+
+# Terraform local overrides
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Local Terraform CLI configuration
+.terraformrc
+terraform.rc
+
+# Environment files and private credentials
+.env
+.env.*
+!.env.example
 *.pem
 *.key
-credentials.json
 service-account*.json
+credentials*.json
