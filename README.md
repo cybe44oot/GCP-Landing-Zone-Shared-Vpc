@@ -16,6 +16,8 @@ A hands-on Google Cloud Platform (GCP) Enterprise Landing Zone built with Terraf
 
 ## Architecture
 
+![GCP Enterprise Landing Zone Architecture](images/gcp%20landing%20zone.png)
+
 ```text
 Google Cloud Organization
 └── landing-zone-lab
