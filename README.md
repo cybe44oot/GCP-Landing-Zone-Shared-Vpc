@@ -18,12 +18,12 @@ A hands-on Google Cloud Platform (GCP) Enterprise Landing Zone built with Terraf
 
 ```text
 Google Cloud Organization
-└── Landing Zone Folder
-    ├── Network Host Project
-    │   ├── Shared VPC: network-shared-vpc
-    │   ├── Subnet: app-01
+└── landing-zone-lab
+    ├── alhobab-alz-lab-host-2026
+    │   ├── Shared VPC: alz-shared-vpc
+    │   ├── Subnet: alz-us-east1-app-01
     │   └── Firewall rules
-    └── Workload Service Project
+    └── alhobab-alz-lab-workload-2026
         └── Application workload (planned)
 ```
 
@@ -33,18 +33,24 @@ The architecture separates networking from workloads without requiring every fun
 
 ## Current Configuration
 
-| Component              | Configuration                                                             |
-| ---------------------- | ------------------------------------------------------------------------- |
-| Infrastructure as Code | Terraform                                                                 |
-| Cloud provider         | Google Cloud                                                              |
-| Network model          | Shared VPC                                                                |
-| Network mode           | Custom-mode VPC                                                           |
-| Routing mode           | Regional                                                                  |
-| Region                 | `us-east1`                                                                |
-| Subnet CIDR            | `10.60.0.0/20`                                                            |
-| Private Google Access  | Enabled on the application subnet                                         |
-| Firewall               | Ingress TCP 80/443 from the configured lab subnet to VMs tagged `alz-web` |
-| State                  | Local Terraform state per root configuration                              |
+| Component | Configuration |
+|---|---|
+| Infrastructure as Code | Terraform |
+| Cloud provider | Google Cloud |
+| Organization | `alhobab.site` |
+| Landing zone folder | `landing-zone-lab` |
+| Host project ID | `alhobab-alz-lab-host-2026` |
+| Workload project ID | `alhobab-alz-lab-workload-2026` |
+| Network model | Shared VPC |
+| VPC name | `alz-shared-vpc` |
+| Network mode | Custom-mode VPC |
+| Routing mode | Regional |
+| Subnet name | `alz-us-east1-app-01` |
+| Region | `us-east1` |
+| Subnet CIDR | `10.60.0.0/20` |
+| Private Google Access | Enabled on the application subnet |
+| Firewall | Ingress TCP 80/443 from the configured lab subnet to VMs tagged `alz-web` |
+| State | Local Terraform state per root configuration |
 
 The firewall rule is scoped to the configured source CIDR and matching VM network tags. It does not by itself expose an application to the public internet.
 
@@ -118,7 +124,7 @@ terraform plan
 
 Inspect the proposed changes carefully, especially any resource replacement or destruction. Apply only after explicitly reviewing and approving the plan.
 
-> Each environment is a separate Terraform root configuration with its own state. Initialize and plan each root independently.
+Each environment is a separate Terraform root configuration with its own state. Initialize and plan each root independently.
 
 ## Security and State Management
 
@@ -133,8 +139,8 @@ Inspect the proposed changes carefully, especially any resource replacement or d
 
 ## Implementation Roadmap
 
-- [ ] Phase 1 — Foundation: folder and project configuration.
-- [ ] Phase 2 — Networking: Shared VPC, subnet, and initial firewall configuration.
+- [x] Phase 1 — Foundation: folder and project configuration.
+- [x] Phase 2 — Networking: Shared VPC, subnet, and initial firewall configuration.
 - [ ] Phase 3 — Security guardrails: IAM review and organization policy controls.
 - [ ] Phase 4 — Workload deployment and network validation.
 - [ ] Phase 5 — Logging, monitoring, and alerting.
