@@ -1,0 +1,8 @@
+org_id             = "315824375507"
+billing_account_id = "01F57E-4AA2F9-FD30F7"
+
+folder_name = "landing-zone-lab"
+
+# Project IDs are globally unique. Change these if they are unavailable.
+host_project_id     = "alhobab-alz-lab-host-2026"
+workload_project_id = "alhobab-alz-lab-workload-2026"
